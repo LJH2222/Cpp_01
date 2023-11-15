@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+int Max(int* pArr, int size);
+int Min(int* pArr, int size);
+void Sorting(int* pArr, int size);
+
+int main()
+{
+	int b[] = { 20,34,12,24,54,91,9,40,81,10 };
+	int b_size = sizeof(b) / sizeof(int);
+
+	printf("[정렬 전 배열]\n");
+	for (int i = 0; i < b_size; i++) {
+		printf("%d", b[i]);
+		if (i != b_size - 1) printf(", ");
+	}
+	printf("\n");
+
+	Sorting(b, b_size);	
+
+	printf("[정렬 후 배열]\n");
+	for (int i = 0; i < b_size; i++) {
+		printf("%d", b[i]);
+		if (i != b_size - 1) printf(", ");
+	}
+	printf("\n");
+	
+	int max = Max(b, b_size);
+	int min = Min(b, b_size);
+
+	printf("배열의 최대값 : %d, 최소값 : %d", max, min);
+
+	return 0;
+}
+
+void Sorting(int* pArr, int size)
+{
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int j = 0; j < size - 1 - i; j++)
+		{
+			if (pArr[j] < pArr[j + 1])
+			{
+				int temp = pArr[j];
+				pArr[j] = pArr[j + 1];
+				pArr[j + 1] = temp;
+			}
+		}
+	}
+}
+
+int Max(int* pArr, int size)
+{
+	int result = pArr[0];
+
+	for (int i = 0; i < size; i++) {
+		if (pArr[i] > result) result = pArr[i];
+	}
+
+	return result;
+}
+
+int Min(int* pArr, int size)
+{
+	int result = pArr[0];
+
+	for (int i = 0; i < size; i++) {
+		if (pArr[i] < result) result = pArr[i];
+	}
+
+	return result;
+}
