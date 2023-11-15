@@ -70,6 +70,3 @@ int Min(int* pArr, int size)
 
 	return result;
 }
-
-
-<img width="867" alt="실행결과" src="https://github.com/LJH2222/Cpp_01/assets/144498007/36d7140c-cd7d-41c7-a983-af1b56a8bb74">
